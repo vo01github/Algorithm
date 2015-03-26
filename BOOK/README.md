@@ -11,7 +11,7 @@ http://www.zhihu.com/question/19987046
 2. Algorithms 算法概论 
 短小精悍，别据一格，准经典之作。一个坏消息: 同算法导论，该书没有习题答案。好消息：习题很经典，难度也适中，只需花点点时间自己也都能做出来。不好也不坏的消息：我正在写习题的答案，已完成前三章，还剩九章约二百道题，顺利的话二个月之后发布。另有中文版名《算法概论》，我没看过，不知道翻译得怎么样。如果有心的话，还是尽量看原版吧，其实看原版与看中文版花费时间不会相差很大，因为大部分时间其实都花费在做习题上了。
 
-dr. dobb's essential books on Algorithm and daba structure
+dr dobb's essential books on Algorithm and daba structure
 
 3. Algorithm Design 算法设计 
 很经典的一本书，很久之前看的，遗憾的是现在除了就记得它很经典之外其它都忘光了。
