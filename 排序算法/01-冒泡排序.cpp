@@ -33,7 +33,7 @@ void swip(type &a, type &b)
     i = j;
     j = tmep; 
 }  
-
+swap(a,b);
 
 
 
@@ -41,9 +41,11 @@ void swip(type &a, type &b)
 // 判断函数-用来决定是否需要交换的【比较函数】
 enum COMPARE{
     COMPARE_E_BIG_TO_SMALL  = 0,        //  把数组按从大到小排列
-    COMPARE_E_SMALL_TO_BIG  = 1,         //  把数组按从小到大排列
+    COMPARE_E_SMALL_TO_BIG  = 1,        //  把数组按从小到大排列
 }
-int compare(const int &v1, const int &v2)    // 比较函数，不需要修改值，所以加上 const
+
+template <typename type>  
+int compare(const type &v1, const type &v2)    // 比较函数，不需要修改值，所以加上 const
 {
     if(v1>v2) return COMPARE_E_SMALL_TO_BIG;
     if(v1<v2) return COMPARE_E_BIG_TO_SMALL;
@@ -55,6 +57,7 @@ int compare(const int &v1, const int &v2)    // 比较函数，不需要修改�
 时间复杂度： 
     n + (n-1) + (n-2) + ... + 2 + 1 = n*(n+1)/2 = n^2 + n = n^2
     而且这个时间复杂度，不受输入值的原始排序影响而变化，始终都是这个值。
+    比如已经拍好序的数组输入，它还是要计算 n^2 次。
 
 算法效率：
     它应该算是最最容易写出的排序代码了，不过这个简单易懂的代码，却是有缺陷的。观察后发现，在排序好1和2的位置后，
@@ -76,7 +79,7 @@ void BubbleSort0(int array[], int length)   // length 为数组的长度。
 }
 
 
-// __________________________1 冒泡排序 __________________________
+// __________________________2 冒泡排序-带哨兵 __________________________
 /*
 	这已经成为了教科书式的排序算法了。很容易实现，且对部分已经排好序的数据进行排序时，具有比较好的效率。它的最坏情形是O(N2)。
 	算法思路：以从小到大排序为例，每次从数组最后一个元素开始，比较相邻的两个元素，如果array[j]<array[j-1]，即后面的元素小于前面的元素，
@@ -86,22 +89,22 @@ void BubbleSort0(int array[], int length)   // length 为数组的长度。
 	直接上代码：
 */
 
-void BubbleSort(int array[], int nsize)
+void BubbleSort(int array[], int length)
  {
      int i,j;
      bool bok=false;
      /***i指向冒泡的顶端***/
      /***如果哨兵为true,表明i位置以后的元素都已经排好序，直接退出***/
-     for(i=0; (i<nsize-1)&&(bok!=true); i++)
+     for(i=0; (i<length-1)&&(bok!=true); i++)
      {
          bok = true;//重置哨兵
          /***j指向底端***/
-         for(j=nsize-1; j>i; j--)
+         for(j=length-1; j>i; j--)
          {
              /***满足条件，交换元素***/
             if(array[j]<array[j-1])
             {
-                swap(&array[j], &array[j-1]);
+                swap(array[j], array[j-1]);
                 bok = false;//设置哨兵为false，表明存在可以交换的元素
             }
          }
