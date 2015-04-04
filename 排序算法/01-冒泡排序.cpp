@@ -91,7 +91,7 @@ void BubbleSort1(int array[], int length)   // length 为数组的长度。
     {
         for(j=length-1;j>i;j--)     /* 注意j是从后往前循环 */
         {
-            if( array[j]<array[j-1]) )
+            if( array[j]<array[j-1] )
             {
                 swap(array[j],array[j-1]);
             }
