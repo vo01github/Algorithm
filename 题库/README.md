@@ -30,6 +30,10 @@
 	
 	试题广场【nowcoder上有很多互联网公司常见的笔试面试题】
 	http://www.nowcoder.com/questionCenter
+
+	中国大学MOOC-陈越、何钦铭-数据结构基础习题集
+	http://www.icourse163.org/course/zju-93001#/info
+	http://www.patest.cn/contests/mooc-ds/
 	
 ## 各大公司的面试题库
 
