@@ -29,9 +29,9 @@ swap(a,b);
 template <typename type>  
 void swip(type &a, type &b)  
 {  
-    type temp = i;
-    i = j;
-    j = tmep; 
+    type temp = a;
+    a = b;
+    b = tmep; 
 }  
 swap(a,b);
 
