@@ -1,10 +1,10 @@
 ﻿
 
-// 99-排序练习
+// 00-排序标准
 
 
-// __________________________ __________________________  自我练习 __________________________ __________________________
-/// 自己练习 多敲打几遍。
+// __________________________ __________________________  参考代码 __________________________ __________________________
+/// 自己练习后 与 参考代码 进行对比 。
 
 
 
@@ -181,8 +181,38 @@ void Merge(int SR[],int TR[],int id0,int end0,int end1)
 }
 
 // __________________________7 快速排序 __________________________
+//  默写练习次数：1
+array[100];
+quickSort(array[],0,99);
 
+void quickSort(int array[],int left,int right)
+{
+    if(left >= right )
+        return;
 
+    int i = left;
+    int j = right;
+    int base = array[left];
 
+    while(i!=j)
+    {
+        while( i<j && array[j]>=base ) j--;
+
+        while( i<j && array[i]<=base ) i++;
+
+        if( i<j )
+        {
+            swap( array[i] , array[j] );
+        }
+    }
+
+    array[left] = array[i];
+    array[i] = base;
+
+    quickSort(array[],left,i-1);
+    quickSort(array[],i+1,right);
+}
+
+// __________________________8 桶排序 __________________________
 
  
