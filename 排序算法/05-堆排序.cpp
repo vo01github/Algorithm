@@ -161,19 +161,28 @@ ok，讲完了，上代码：
 
 */
 
+/*
+编号为i的父节点为：(i-1)/2
+左节点：2*i+1
+右节点：2*i+2
+
+数组长度为 nsize 的最后一个非叶子节点：
+i = nsize/2-1;
+*/
+
 
 void HeapSort(int arr[], int nsize)
 {
     int i;
-    for(i=nsize/2-1; i>=0; i--)
+    for(i=nsize/2-1; i>=0; i--)         //从最后一个非叶子节点开始，对每个非叶子节点进型最小根调整，保证每个根节点都是其子树中的最小值
     {
-        percolatedown(arr, nsize, i);//创建堆
+        percolatedown(arr, nsize, i);   // 进行下滤操作
     }
 
     for(i=nsize; i>0; i--)
     {
-        swap(&arr[0],&arr[i-1]);//交换头尾元素
-        percolatedown(arr, i-1, 0);//重新恢复堆序
+        swap(&arr[0],&arr[i-1]);        //交换头尾元素
+        percolatedown(arr, i-1, 0);     //重新恢复堆序
     }
     
 }
@@ -183,14 +192,14 @@ void percolatedown(int arr[], int nsize, int index)
     int nchild;
     for (ntemp=arr[index]; 2*index+1<=nsize-1; index=nchild)
     {
-        nchild = 2*index+1;//左儿子节点序号
+        nchild = 2*index+1;             //左儿子节点序号
         if (nchild != nsize-1 && arr[nchild] < arr[nchild+1]) //如果存在右儿子，且左儿子小于右儿子
         {
-            nchild++;//指向两个儿子中比较大的节点
+            nchild++;                   //指向两个儿子中比较大的节点
         }
-        if (ntemp < arr[nchild])//如果要下滤的值小于儿子节点
+        if (ntemp < arr[nchild])        //如果要下滤的值小于儿子节点
         {
-            arr[index] = arr[nchild];//儿子节点上滤
+            arr[index] = arr[nchild];   //儿子节点上滤
         }
         else
             break;
