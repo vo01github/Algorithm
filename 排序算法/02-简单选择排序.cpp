@@ -61,7 +61,28 @@ void SelectSort0(int array[], int length)   // length 为数组的长度。
         {
             swap(array[i],array[min]);
         }
-         
+    }
+}
+
+// 升级版
+void SelectSort1(int array[], int length)   // length 为数组的长度。
+{
+    int i,j,min;
+    for(i = 0;i<length-1;i++)       // 为啥边界判断是 length-1 。因为倒数第二个元素排好序时，倒数第1个元素就肯定已经在正确的位置上了。
+    {
+        min = i;
+        for(j=i+1;j<length;j++)   
+        {
+            if( array[j]<array[min] ) 
+            {
+               min = j;
+            }
+        }
+
+        if(i!=min)
+        {
+            swap(array[i],array[min]);
+        }
     }
 }
 
@@ -91,22 +112,4 @@ void SelectSort0(int array[], int length)   // length 为数组的长度。
 
 // __________________________ __________________________  自我练习 __________________________ __________________________
 /// 自己练习 多敲打几遍。
- void selectSort(int array[],int length)
- {
-    for(int i = 0;i<length;i++)
-    {
-        int min = i;
-        for(int j = i+1;j<length;j++)
-        {
-            if(array[j]<array[min])
-            {
-                min = j;
-            }
-        }
-
-        if(min != i)    // 这句判断可要可不要
-        {
-            swap(array[i],array[min]);
-        }
-    }
- }    
+ 
