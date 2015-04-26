@@ -155,7 +155,45 @@ i=2:	bok=true,直接退出。
  */
 
 
-// __________________________2 插入排序 __________________________
+// __________________________2 鸡尾酒排序 __________________________
 /*
+    就是把 BubbleSort0 和 BubbleSort1 结合起来.
+    不对，理解错了。不是结合起来。
 
+    这样结合起来写太麻烦了，还是拆成两个并列的 大for 循环好一点
 */
+// 下面这个代码不对啊， 关键在于条件：  j < length 每次的 length 是变化的，
+void cocktail_sort0(int array[], int length)
+ {
+     int i,j;
+     bool bok = false;
+     bool bottom = false;
+     /***i指向冒泡的顶端***/
+     /***如果哨兵为true,表明i位置以后的元素都已经排好序，直接退出***/
+     for(i=0; (i<length-1)&&(bok!=true); i++)
+     {
+         bok = true;//重置哨兵
+         
+         int add;
+         if ( bottom == true )
+         {
+             j = length-1;
+             add = -1;
+         }else{
+            j = i + 1;
+            add = 1;
+         }
+
+         for(; j > i && j < length; j += add)
+         {
+             /***满足条件，交换元素***/
+            if(array[j]<array[j-1])
+            {
+                swap(array[j], array[j-1]);
+                bok = false;//设置哨兵为false，表明存在可以交换的元素
+            }
+         }
+
+         bottom = bottom * (-1);
+     }
+ }  
