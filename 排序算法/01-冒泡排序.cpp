@@ -155,7 +155,7 @@ i=2:	bok=true,直接退出。
  */
 
 
-// __________________________2 鸡尾酒排序 __________________________
+// __________________________ 鸡尾酒排序 __________________________
 /*
     就是把 BubbleSort0 和 BubbleSort1 结合起来.
     不对，理解错了。不是结合起来。
@@ -197,3 +197,45 @@ void cocktail_sort0(int array[], int length)
          bottom = bottom * (-1);
      }
  }  
+
+
+/*
+   最终正确版的 鸡尾酒 排序
+
+   鸡尾酒排序，也就是定向冒泡排序，鸡尾酒搅拌排序，搅拌排序（也可以视作选择排序的一种变形），涟漪排序，来回排序or 快乐小时排序，
+   是冒泡排序的一种变形。此算法与冒泡排序的不同处在于排序时是以双向在序列中进行排序。
+    
+   动态GIF图片： 
+   http://zh.wikipedia.org/wiki/%E9%B8%A1%E5%B0%BE%E9%85%92%E6%8E%92%E5%BA%8F
+*/
+ void cocktail_sort1(int array[], int length)
+ {
+    int left = 0,right = length - 1;
+    int i,j;
+    while( left < right)
+    {
+        for (i = left; i < right; ++i )
+        {
+            if(array[i+1]<array[i])
+            {
+                swap(array[i+1], array[i]);
+            }
+        }
+        --right;
+
+        for (j = right; j > left; --j )
+        {
+            if(array[j-1] > array[j])
+            {
+                swap(array[j-1], array[j]);
+            }
+        }
+        ++left;
+    }
+ }
+
+
+ // __________________________ 奇偶排序 __________________________
+/*
+    
+*/
