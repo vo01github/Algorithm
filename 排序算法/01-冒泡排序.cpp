@@ -237,5 +237,32 @@ void cocktail_sort0(int array[], int length)
 
  // __________________________ 奇偶排序 __________________________
 /*
-    12
+   在并行计算排序中，每个处理器对应处理一个值，并仅有与左右邻居的本地互连。所有处理器可同时与邻居进行比较、交换操作，交替以奇-偶、偶-奇的顺序。
+   该算法由Habermann在1972年最初发表并展现了在并行处理上的效率。
 */
+
+ void cd_sort1(int array[], int length)
+ {
+    bool bok = false;
+    while( bok == false )
+    {
+        bok = true;
+        for(i = 0; i<length-1; i+=2)
+        {
+            if(array[i+1]<array[i])
+            {
+                swap(array[i+1], array[i]);
+                bok = false;
+            }
+        }
+
+        for(i = 1; i<length-1; i+=2)
+        {
+            if(array[i+1]<array[i])
+            {
+                swap(array[i+1], array[i]);
+                bok = false;
+            }
+        }
+    }
+ }
