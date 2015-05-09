@@ -18,16 +18,29 @@
 
 http://www.cnblogs.com/sdjl/articles/1274312.html
 
+金矿模型讲解 非常清楚。
 
 **动态规划**
 
 http://www.cnblogs.com/kkgreen/archive/2011/06/26/2090702.html
 
 
-** **
+**动态规划之背包问题**
+
+http://www.hawstein.com/posts/dp-knapsack.html
+
+代码详实，可以自己敲完后，进行对比。
 
 
+**动态规划：从新手到专家**
+
+http://www.hawstein.com/posts/dp-novice-to-advanced.html
+
+“如果我们有面值为1元、3元和5元的硬币若干枚，如何用最少的硬币凑够11元？”
 
 
-****
+**acm之家-讲解动态规划**
 
+看不太懂在讲些什么
+
+http://www.acmerblog.com/article-np-3376.html
