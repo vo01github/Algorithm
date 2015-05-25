@@ -55,6 +55,7 @@ http://blog.csdn.net/jzqt_t/article/details/28126533
 
 编程错误集锦
 
-**《程序员面试金典》**
+***
 
-bookl
+> C++ 实现的很多算法：把这里的学会就够用了
+http://www.geeksforgeeks.org/fundamentals-of-algorithms/
