@@ -5,34 +5,41 @@
 
 // __________________________ 1.1 __________________________
 /*
-	实现一个算法，确定一个字符串的所有字符是否全都不同。假使不允许使用额外的数据结构，又该如何处理？
+	实现一个算法，确定一个字符串的所有字符是否全都不同。
+	假使不允许使用额外的数据结构，又该如何处理？
 */
 
 
-// 假定是 Anscii 编码，而不是UTF-8编码
+
+// __________________________ 解决思路 __________________________
+/*
+01 假定是 ASCII 编码，而不是UTF-8编码
+	用bool数组[256]协助判断	
+
+02 可以将字符串中的 每一个字符 与 其余字符进行比较。
+	时间复杂度O(n^2), 空间复杂度：O(1)
+
+03 如果允许修改字符串的话，对字符串先进行排序【时间花费大概是 O(n*log(n)) 】，
+	然后在线性检查相邻字符串中是否有完全相同的字符。
+*/ 
 
 
-// 第1种方案-用255个bool值数组协助判断	
+
+// __________________________ 实现细节 __________________________	
+// 第1种方案-
 // 待 上机输入 验证 
-bool confirm(std::string & strOrc)
+bool confirm(const std::string & strOrc)
 {
-	int length = strOrc.strlen()
-	if(length>255)
-	{
-		return false;	// 大于 Anscii 编码 最大数量了
-	}
+	if( strOrc.length()>256 )return false;	// 大于 Anscii 编码 最大数量了
 
-	bool strHas[255];	// 统计 bool 值的
-	char strdd[255];
+	bool strHas[256];	
+	memset(strHas, 0, sizeof(strHas));		
 
-	sprintf(strdd,%s,strOrc.c_str())
-	for (int i = 0; i < length; ++i)
+	for (int i = 0; i < strOrc.length() ; ++i)
 	{
-		int j = (int )strdd[i];
-		if( strHas[j] == true  )
-		{
-			return false;
-		}
+		int j = (int)strOrc[i];
+		if( strHas[j] )return false;
+		strHas[j] = true;
 	}
 
 	return true;
@@ -40,5 +47,5 @@ bool confirm(std::string & strOrc)
 
 /*
 	时间复杂度：O(n)
-	空间复杂度：O(n)
+	空间复杂度：O(1)
 */

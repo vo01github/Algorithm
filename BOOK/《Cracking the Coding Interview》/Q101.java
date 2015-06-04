@@ -1,4 +1,4 @@
-public class Qstring01 {
+public class Q101 {
     public static void main(String[] args) { 
         boolean isUnique = isUniqueChar2("Helo,Wrd");
         if( isUnique ){
