@@ -26,9 +26,9 @@
 
 
 // __________________________ 实现细节 __________________________	
-// 第1种方案-
-// 待 上机输入 验证 
-bool confirm(const std::string & strOrc)
+
+// 第1种方案：用额外数组__________________________
+bool confirm1(const std::string & strOrc)
 {
 	if( strOrc.length()>256 )return false;	// 大于 Anscii 编码 最大数量了
 
@@ -49,3 +49,27 @@ bool confirm(const std::string & strOrc)
 	时间复杂度：O(n)
 	空间复杂度：O(1)
 */
+
+
+
+// 第3种方案：用排序__________________________
+bool confirm3( std::string & strOrc )
+{
+	// 容错处理
+	if( strOrc.length() < 2 )return true;	
+
+	if( strOrc.length()>256 )return false;	// 大于 Anscii 编码 最大数量了
+
+	std::string str = strOrc;				// 如果允许对原字符串排序，就不用这个了。
+	sort(str,str + str.length());
+
+	for(int i = 1; i<str.length() ;++i)		// 从第2个元素开始
+	{
+		if (str[i] == str[i-1])		
+		{
+			return false;
+		}
+	}
+
+	return true;
+}

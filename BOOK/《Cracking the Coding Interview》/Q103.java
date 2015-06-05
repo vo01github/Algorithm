@@ -1,10 +1,10 @@
 public class Q103 {
     public static void main(String[] args) { 
-        boolean isEqual = permutation("Helo,Wrd","safsf");
+        boolean isEqual = permutation("helowrd","wrdhloe");
         if( isEqual ){
-            System.out.println("no equal");
+            System.out.println("equal");
         }else{
-             System.out.println("equal");
+             System.out.println("no equal");
         }
         
     }
@@ -16,10 +16,18 @@ public class Q103 {
         
         int[] letters = new int[256];
         
-        chat[] s_array = s.toCharArray();
+        char[] s_array = s.toCharArray();
         for( char c : s_array ){
             letters[c]++;
         }
         
+        for( int i = 0; i< t.length(); i++ ){
+            int c = (int)t.charAt(i);
+            if( --letters[c] < 0 ){
+                return false;
+            }
+        }
+        
+        return true;
     }
 }

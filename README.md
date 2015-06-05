@@ -88,6 +88,7 @@ http://www.zhihu.com/question/19927564
 
 ---
 **《程序员编程艺术：面试和算法心得》**
+>7月份就要出版了，出版后去买一本吧，现在先去仔细阅读 github 版吧。
 >
 https://github.com/julycoding/The-Art-Of-Programming-By-July
 
