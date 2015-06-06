@@ -22,7 +22,7 @@
 
 */ 
 // 第1种方案：使用 string __________________________
-
+// 总感觉下面的代码写的 好丑啊！
 string compress( string & str )	
 {
 	if(str.length() < 2)return str;
