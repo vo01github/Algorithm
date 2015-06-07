@@ -32,6 +32,14 @@ typedef struct NODE
 void freeNode( Node* deleNode)		// free node 
 {
 
+	Node* thisNode = deleNode;
+	Node* nextNode = thisNode->next;
+
+	thisNode->value = nextNode->value;	// 如果 nextNode == NULL ，那么此题无解，要提出来。
+	thisNode->next = nextNode->next;
+
+	// 释放结点内存。
+	free(nextNode);
 }
 
 
