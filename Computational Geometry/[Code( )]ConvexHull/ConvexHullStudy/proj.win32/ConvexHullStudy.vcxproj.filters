@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{7d8a52b3-f360-4a62-9126-08babb89b956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proj.win32">
+      <UniqueIdentifier>{81f42fb3-ba4c-4fa1-bb08-d4c42a55ddd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\OpenGLShow">
+      <UniqueIdentifier>{bbe07604-cc6c-4882-ac2c-c3faf5a87b02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>proj.win32</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>proj.win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\01-windowsInit.cpp">
+      <Filter>Classes\OpenGLShow</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>proj.win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\01-windowsInit.h">
+      <Filter>Classes\OpenGLShow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\00-DataDefinition.h">
+      <Filter>Classes\OpenGLShow</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\01-SimpleGraphics.h">
+      <Filter>Classes\OpenGLShow</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
