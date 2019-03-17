@@ -18,6 +18,9 @@
         而快速排序其实就是我们前面认为最慢的冒泡排序的升级，它们都属于交换排序类。即它也是通过不断的比较和移动交换来实现排序的，
         只不过它的实现，增大了记录的比较和移动的距离，将关键字较大的记录从前面直接移动到后面，关键字较小的记录从后面直接移动到前面，
         从而减少了总的比较次数和移动交换次数。
+		
+		参考来源：《大话数据结构》-伍迷
+		https://www.cnblogs.com/cj723/archive/2011/04/27/2029993.html
 */
 
 
@@ -67,35 +70,35 @@
 
 */
 
-int a[101],n;       //定义全局变量，这两个变量需要在子函数中使用
-quickSort(a[],1,n);     //快速排序调用
+int a[101], n;       //定义全局变量，这两个变量需要在子函数中使用
+quickSort(a[], 0, n);     //快速排序调用
 
-void quickSort(int a[],int left,int right)
+void quickSort(int a[],int start,int end)
 {
-    if(left>=right)
+    if(start >= end)
        return;
                                     
-    int base = a[left];   //temp中存的就是基准数
-    int i=left;
-    int j=right;
-    while(i!=j)
+    int base = a[start];   //temp中存的就是基准数
+    int left = start;
+    int right = end;
+    while(left != right)
     {
        //顺序很重要，要先从右边开始找
-       while(a[j]>=base && i<j) j--;
+       while(a[right] >= base && left < right) right--;
                 
        //再找右边的
-       while(a[i]<=base && i<j) i++;
+       while(a[left] <= base && left < right) left++;
                 
        //交换两个数在数组中的位置
-       if(i<j) swap(a[i],a[j]);
+       if(left < right) swap(a[left], a[right]);
     }
 
     //最终将基准数归位
-    a[left]=a[i];
-    a[i]=base;
+    a[start] = a[left];
+    a[left] = base;
                                  
-    quicksort(a[],left,i-1);        //继续处理左边的，这里是一个递归的过程
-    quicksort(a[],i+1,right);       //继续处理右边的 ，这里是一个递归的过程
+    quicksort(a[], start, left - 1);        //继续处理左边的，这里是一个递归的过程
+    quicksort(a[], left + 1, end);       //继续处理右边的 ，这里是一个递归的过程
 }
 
 
